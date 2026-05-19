@@ -1,13 +1,11 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Alu Beauty Hub1
-ORG:Alu Beauty Hub
-TEL:+256730494491
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-FN:Alu Beauty Hub2 
-ORG:Alu Beauty Hub
-TEL:+256760957521
+FN:Harry
+TITLE:ALU Beauty Hub Director
+ORG:ALU Beauty Hub
+TEL;TYPE=CELL:+256760957521
+TEL;TYPE=WHATSAPP:+256730494491
+EMAIL:ugaka1204@gmail.com
+URL:https://alubeauty.vercel.app/
+ADR:;;Gangu, Busabala Road, next to Akrine Restaurant;Kampala;;Uganda
 END:VCARD
