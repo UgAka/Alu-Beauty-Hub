@@ -334,23 +334,7 @@ footer .socials{margin-top:16px}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
       Email
     </a>
-  <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAlu%20Beauty%20Hub1%0AORG%3AAlu%20Beauty%20Hub%0ATEL%3A%2B256730494491%0AEND%3AVCARD%0ABEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAlu%20Beauty%20Hub2%0AORG%3AAlu%20Beauty%20Hub%0ATEL%3A%2B256760957521%0AEND%3AVCARD"  
-   class="action">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="10"/>
-    <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>
-  </svg>
-  Save contact
-</a>
-       <!-- <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAlu%20Beauty%20Hub1%0AORG%3AAlu%20Beauty%20Hub%0ATEL%3A%2B256730494491%0AEND%3AVCARD%0ABEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAlu%20Beauty%20Hub2%0AORG%3AAlu%20Beauty%20Hub%0ATEL%3A%2B256760957521%0AEND%3AVCARD" 
-   download="alubeautyhub.vcf" 
-   class="action">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="10"/>
-    <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>
-  </svg>
-  Save contact
-</a> -->
+<a class="action" href="alubeautyhub.vcf" download> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="10"/> <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/> </svg> Save contact </a>
   </section>
 
   <!-- ============ PRODUCTS ============ -->
@@ -590,31 +574,6 @@ $("#videos").innerHTML = VIDEOS.map(v => `
 //   URL.revokeObjectURL(url);
 // });
 
-/* ============================================================
-   ONE-TAP NATIVE CONTACT SAVE
-   ============================================================ */
-$("#quickSaveContact").addEventListener("click", (e) => {
-  e.preventDefault(); // Stop the webpage from scrolling or jumping
-
-/* ============================================================
-   ONE-TAP NATIVE CONTACT SAVE (UPDATED DATA)
-   ============================================================ */
-$("#quickSaveContact").addEventListener("click", (e) => {
-  e.preventDefault();
-
-  // Your updated vCard details formatted cleanly
-  const vcardContent = [
-    "BEGIN:VCARD",
-    "VERSION:3.0",
-    "FN:Harry | Alu Beauty",
-    "ORG:Alu Beauty Hub",
-    "TEL;TYPE=CELL,VOICE:+256760957521",
-    "TEL;TYPE=CELL,WA,VOICE:+256730494491",
-    "EMAIL;TYPE=INTERNET,WORK:ugaka1204@gmail.com",
-    "URL;WORK:https://alubeauty.vercel.app/",
-    "ADR;TYPE=WORK:;;gangu along busabala road next to akrine restaurant;;;;",
-    "END:VCARD"
-  ].join("\r\n");
 
   // URL-encode the string payload 
   const dynamicUri = "data:text/vcard;charset=utf-8," + encodeURIComponent(vcardContent);
