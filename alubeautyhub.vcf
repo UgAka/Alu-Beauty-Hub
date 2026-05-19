@@ -1,11 +1,10 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Harry
-TITLE:ALU Beauty Hub Director
-ORG:ALU Beauty Hub
-TEL;TYPE=CELL:+256760957521
-TEL;TYPE=WHATSAPP:+256730494491
-EMAIL:ugaka1204@gmail.com
-URL:https://alubeauty.vercel.app/
-ADR:;;Gangu, Busabala Road, next to Akrine Restaurant;Kampala;;Uganda
+FN:Harry | Alu Beauty
+ORG:Alu Beauty Hub
+TEL;TYPE=CELL,VOICE:+256760957521
+TEL;TYPE=CELL,WA,VOICE:+256730494491
+EMAIL;TYPE=INTERNET,WORK:ugaka1204@gmail.com
+URL;WORK:https://alubeauty.vercel.app/
+ADR;TYPE=WORK:;;gangu along busabala road next to akrine restaurant;;;;
 END:VCARD
