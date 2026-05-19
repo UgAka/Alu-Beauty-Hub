@@ -596,20 +596,30 @@ $("#videos").innerHTML = VIDEOS.map(v => `
 $("#quickSaveContact").addEventListener("click", (e) => {
   e.preventDefault(); // Stop the webpage from scrolling or jumping
 
-  // Your exact vCard content format strings
+/* ============================================================
+   ONE-TAP NATIVE CONTACT SAVE (UPDATED DATA)
+   ============================================================ */
+$("#quickSaveContact").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  // Your updated vCard details formatted cleanly
   const vcardContent = [
     "BEGIN:VCARD",
     "VERSION:3.0",
-    "FN:Alu Beauty Hub",
+    "FN:Harry | Alu Beauty",
     "ORG:Alu Beauty Hub",
-    "TEL:+256730494491",
+    "TEL;TYPE=CELL,VOICE:+256760957521",
+    "TEL;TYPE=CELL,WA,VOICE:+256730494491",
+    "EMAIL;TYPE=INTERNET,WORK:ugaka1204@gmail.com",
+    "URL;WORK:https://alubeauty.vercel.app/",
+    "ADR;TYPE=WORK:;;gangu along busabala road next to akrine restaurant;;;;",
     "END:VCARD"
-  ].join("\r\n"); // Using carriage-return line breaks for strict vCard standards
+  ].join("\r\n");
 
-  // Safely URL encode the vCard string data
+  // URL-encode the string payload 
   const dynamicUri = "data:text/vcard;charset=utf-8," + encodeURIComponent(vcardContent);
   
-  // Directly point the browser window location to open the native handler
+  // Hand off the data directly to the native phone handler
   window.location.href = dynamicUri;
 });
 
