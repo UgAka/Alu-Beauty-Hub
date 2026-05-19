@@ -574,14 +574,6 @@ $("#videos").innerHTML = VIDEOS.map(v => `
 //   URL.revokeObjectURL(url);
 // });
 
-
-  // URL-encode the string payload 
-  const dynamicUri = "data:text/vcard;charset=utf-8," + encodeURIComponent(vcardContent);
-  
-  // Hand off the data directly to the native phone handler
-  window.location.href = dynamicUri;
-});
-
 /* Footer year */
 $("#year").textContent = new Date().getFullYear();
 </script>
