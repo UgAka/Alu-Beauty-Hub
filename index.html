@@ -334,7 +334,17 @@ footer .socials{margin-top:16px}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
       Email
     </a>
-    <a class="action" href="alubeautyhub.vcf" download>
+    <!-- <a class="action" href="alubeautyhub.vcf" download>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>
+  </svg>
+  Save contact
+</a> -->
+<!-- <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAlu%20Beauty%20Hub1%0AORG%3AAlu%20Beauty%20Hub%0ATEL%3A%2B256730494491%0AEND%3AVCARD%0ABEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAlu%20Beauty%20Hub2%0AORG%3AAlu%20Beauty%20Hub%0ATEL%3A%2B256760957521%0AEND%3AVCARD" 
+   download="alubeautyhub.vcf" 
+   class="action"> -->
+   <a class="action" id="quickSaveContact" href="#">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="12" cy="12" r="10"/>
     <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>
@@ -555,29 +565,52 @@ $("#videos").innerHTML = VIDEOS.map(v => `
 /* ============================================================
    VCARD DOWNLOAD
    ============================================================ */
-$("#vcardBtn").addEventListener("click", () => {
-  const v = [
-    "BEGIN:VCARD","VERSION:3.0",
-    `FN:${BUSINESS.name}`,
-    `ORG:${BUSINESS.name}`,
-    `TEL;TYPE=CELL:${BUSINESS.phone}`,
-    `TEL;TYPE=WHATSAPP:+${BUSINESS.whatsapp}`,
-    `EMAIL:${BUSINESS.email}`,
-    `URL:${BUSINESS.website}`,
-    `ADR;TYPE=WORK:;;${BUSINESS.address};;;;`,
-    `URL;TYPE=Instagram:${BUSINESS.socials.instagram}`,
-    `URL;TYPE=Facebook:${BUSINESS.socials.facebook}`,
-    `URL;TYPE=TikTok:${BUSINESS.socials.tiktok}`,
-    `URL;TYPE=YouTube:${BUSINESS.socials.youtube}`,
-    "END:VCARD",
-  ].join("\n");
-  const blob = new Blob([v], { type:"text/vcard;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `${BUSINESS.name.replace(/\s+/g,"-").toLowerCase()}.vcf`;
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+// $("#vcardBtn").addEventListener("click", () => {
+//   const v = [
+//     "BEGIN:VCARD","VERSION:3.0",
+//     `FN:${BUSINESS.name}`,
+//     `ORG:${BUSINESS.name}`,
+//     `TEL;TYPE=CELL:${BUSINESS.phone}`,
+//     `TEL;TYPE=WHATSAPP:+${BUSINESS.whatsapp}`,
+//     `EMAIL:${BUSINESS.email}`,
+//     `URL:${BUSINESS.website}`,
+//     `ADR;TYPE=WORK:;;${BUSINESS.address};;;;`,
+//     `URL;TYPE=Instagram:${BUSINESS.socials.instagram}`,
+//     `URL;TYPE=Facebook:${BUSINESS.socials.facebook}`,
+//     `URL;TYPE=TikTok:${BUSINESS.socials.tiktok}`,
+//     `URL;TYPE=YouTube:${BUSINESS.socials.youtube}`,
+//     "END:VCARD",
+//   ].join("\n");
+//   const blob = new Blob([v], { type:"text/vcard;charset=utf-8" });
+//   const url = URL.createObjectURL(blob);
+//   const a = document.createElement("a");
+//   a.href = url;
+//   a.download = `${BUSINESS.name.replace(/\s+/g,"-").toLowerCase()}.vcf`;
+//   document.body.appendChild(a); a.click(); document.body.removeChild(a);
+//   URL.revokeObjectURL(url);
+// });
+
+/* ============================================================
+   ONE-TAP NATIVE CONTACT SAVE
+   ============================================================ */
+$("#quickSaveContact").addEventListener("click", (e) => {
+  e.preventDefault(); // Stop the webpage from scrolling or jumping
+
+  // Your exact vCard content format strings
+  const vcardContent = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    "FN:Alu Beauty Hub",
+    "ORG:Alu Beauty Hub",
+    "TEL:+256730494491",
+    "END:VCARD"
+  ].join("\r\n"); // Using carriage-return line breaks for strict vCard standards
+
+  // Safely URL encode the vCard string data
+  const dynamicUri = "data:text/vcard;charset=utf-8," + encodeURIComponent(vcardContent);
+  
+  // Directly point the browser window location to open the native handler
+  window.location.href = dynamicUri;
 });
 
 /* Footer year */
